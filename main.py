@@ -9,29 +9,11 @@ from ultrasound import *
 from vibration import *
 from path import *
 
-PIR = 23
-VIB = 16
-START_BUTT = 5
-DESTI_BUTT = 17
-DEST = 0
-OUT = 25
-RANGE = 8
-LEFT = 16
-RIGHT = 20
-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(PIR, GPIO.IN)
-GPIO.setup(VIB, GPIO.OUT)
-GPIO.setup(START_BUTT, GPIO.IN)
-GPIO.setup(DESTI_BUTT, GPIO.IN)
-GPIO.setup(OUT, GPIO.IN)
-GPIO.setup(RANGE, GPIO.OUT)
-GPIO.setup(LEFT, GPIO.OUT)
-GPIO.setup(RIGHT, GPIO.OUT)
-
-GPIO.output(RANGE, False)
+MAG_SCL = 3
+MAG_SDA = 2
 
 queue = []      # 진행 경로가 들어있는 큐
 
@@ -49,7 +31,7 @@ def intro():
 
         elif USING == 0:
             print("0")
-            USING = detecting_people(PIR)
+            USING = detecting_people()
 
 
 def perform(DEST):

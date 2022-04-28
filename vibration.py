@@ -4,9 +4,6 @@ import time
 LEFT = 16
 RIGHT = 20
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-
 GPIO.setup(LEFT, GPIO.OUT)
 GPIO.setup(RIGHT, GPIO.OUT)
 
